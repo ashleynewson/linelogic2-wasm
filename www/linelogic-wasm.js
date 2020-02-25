@@ -929,3 +929,4 @@ window.reset = reset;
 window.set_speed = set_speed;
 window.set_size = set_size;
 window.clear = clear;
+window.load_from_image = load_from_image;
