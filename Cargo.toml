@@ -1,6 +1,6 @@
 [package]
 name = "linelogic-wasm"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Ashley Newson <ashleynewson@smartsim.org.uk>"]
 edition = "2018"
 
