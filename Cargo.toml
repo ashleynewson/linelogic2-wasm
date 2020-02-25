@@ -1,0 +1,17 @@
+[package]
+name = "linelogic-wasm"
+version = "0.1.0"
+authors = ["Ashley Newson <ashleynewson@smartsim.org.uk>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+bitflags = "1.2.1"
+wasm-bindgen = "0.2.58"
+console_error_panic_hook = "0.1.6"
+
+[profile.release]
+lto = true
+opt-level = 3

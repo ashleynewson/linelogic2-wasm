@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <script src="jquery-1.11.3.js" type="text/javascript"></script> -->
+<style>
+canvas {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+</style>
+<title>LineLogic 2 WASM</title>
+</head>
+<body>
+<h1>LineLogic 2 WASM</h1>
+<p>Note: WASM-supporting browser required</p>
+<h3 id="version">Version ?</h3>
+    <img id="loaded-img"></img>
+    <form action="javascript:load_from_image()">
+      <input type="file" name="Load" id="img-loader"/>
+      <input type="submit" name="Reload" id="input_reload" value="Reload"/>
+    </form><br>
+    <div id="logic-area"></div>
+    <script type="module" src="./linelogic-wasm.js"></script>
+    <noscript><p>Whooah! Hey there pal, you need to enable JavaScript to use this thing. I'm not leaving till you do.</p></noscript>
+    <p><a href="javascript:start();">Start</a> <a href="javascript:stop();">Stop</a> <a href="javascript:reset();">Reset</a></p>
+    <p id="status">
+      Stopped
+    </p>
+    <form>
+      <h3>Speed:</h3>
+      <p>
+        Fast <input id="input_speed" type="range" name="speed" min="-120" max="60" value="0" onchange="set_speed()"> Slow
+      </p>
+    </form>
+    <form>
+      <h3>Tool:</h3>
+      <p>
+        <input id="mode_wire"    type="radio" name="tool" value="wire" checked>Wiring Tool
+        <br>
+        <input id="mode_protect" type="radio" name="tool" value="protect">Protection Tool
+        <br>
+        <input id="mode_wire_force" type="radio" name="tool" value="wire_force">Wiring Tool (ignore protection)
+        <br>
+        <input id="mode_goal"    type="radio" name="tool" value="goal">Goal Tool
+      </p>
+    </form>
+    <form action="javascript:set_size()">
+      <h3>Size and Scale:</h3>
+      <p>
+        Width:  <input id="input_width"  type="text" name="width"  value="32">
+        Height: <input id="input_height" type="text" name="height" value="32">
+        Scale:  <input id="input_scale"  type="text" name="scale"  value="16">
+        <input type="submit" value="Set Size">
+      </p>
+    </form>
+    <form>
+      <h3>Goal Mode:</h3>
+      <p>
+        <input id="goal_ignore" type="radio" name="goal" value="goal_ignore">Ignore Goals
+        <br>
+        <input id="goal_all"    type="radio" name="goal" value="goal_all" checked>All Goals
+        <br>
+        <input id="goal_any"    type="radio" name="goal" value="goal_any">Any Goals
+        <br>
+        <input id="goal_change" type="radio" name="goal" value="goal_change">Goal Changed
+      </p>
+    </form>
+    <h2>Logic Rules</h2>
+    <p>
+      <ol>
+        <li>Orange wires are charged.</li>
+        <li>Blue wires are uncharged.</li>
+        <li>Charges OR together (charged + charged = charged, charged + discharged = charged, discharged + discharged = discharged).</li>
+        <li>Charges follow wires in a straight line or round a non-split bend.</li>
+        <li>At a T junction, the middle wire inputs the inverse of its signal onto the joining wire.</li>
+      </ol>
+    </p>
+    <h2>Instructions</h2>
+    <p>
+      <ol>
+        <li>Use the mouse to toggle wiring of a cell.</li>
+        <li>Green areas cannot be toggled (protected circuitry).</li>
+        <li>Save a design by saving the design's image to your computer (right click and save usually works).</li>
+        <li>Load a design with the file selector at the top of the page.</li>
+        <li>Start/Stop the circuit running with the controls provided.</li>
+        <li>Reset the circuit to discharge everything.</li>
+        <li>You can clear the circuit with controls at the bottom of the page.</li>
+      </ol>
+    </p>
+    <p>
+      <a href="javascript:clear('wire');">Clear Design (excludes protected circuitry)</a><br>
+      <a href="javascript:clear('protection');">Clear Write Protection (excludes goals)</a><br>
+      <a href="javascript:clear('goal');">Clear Goals</a><br>
+    </p>
+    <p>Copyright Ashley Newson 2020</p>
+</body>
+</html>
