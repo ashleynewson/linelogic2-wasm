@@ -97,6 +97,31 @@ canvas {
       <a href="javascript:clear('protection');">Clear Write Protection (excludes goals)</a><br>
       <a href="javascript:clear('goal');">Clear Goals</a><br>
     </p>
+    <h2>Keyboard Controls</h2>
+    <table>
+      <tr><th>Key</th><th>Action</th></tr>
+      <tr><td>Space</td><td>Start/Stop</td></tr>
+      <tr><td>1</td><td>Wiring tool</td></tr>
+      <tr><td>2</td><td>Protection tool</td></tr>
+      <tr><td>3</td><td>Wiring tool (ignore protection)</td></tr>
+      <tr><td>4</td><td>Goal tool</td></tr>
+      <tr><td>E</td><td>Erase (Square)</td></tr>
+      <tr><td>D</td><td>Subtract (Line)</td></tr>
+      <tr><td>X</td><td>Cut</td></tr>
+      <tr><td>C</td><td>Copy</td></tr>
+      <tr><td>V</td><td>Paste</td></tr>
+      <tr><td>B</td><td>Additive Paste</td></tr>
+      <tr><td>I</td><td>Flip Vertical</td></tr>
+      <tr><td>K</td><td>Flip Horizontal</td></tr>
+      <tr><td>J</td><td>Rotate Counter Clockwise</td></tr>
+      <tr><td>L</td><td>Rotate Clockwise</td></tr>
+    </table>
+    <h2>Examples</h2>
+    <p>
+      <a href="#" onclick="document.getElementById('loaded-img').src='examples/building_blocks.png'; input_scale.value = 16; set_size()">Routing, gates, timers, and memory</a><br>
+      <a href="#" onclick="document.getElementById('loaded-img').src='examples/sbn_fib.png'; input_scale.value = 2; set_size()">Subtract-and-branch-if-negative processor</a><br>
+      <a href="#" onclick="document.getElementById('loaded-img').src='examples/sbn_hdd.png'; input_scale.value = 2; set_size()">Subtract-and-branch-if-negative processor (high-density storage)</a><br>
+    </p>
     <p>Copyright Ashley Newson 2020</p>
 </body>
 </html>
